@@ -35,15 +35,54 @@ public void tester()
     }
   }
 }
-public boolean palindrome(String word)
-{
-  //your code here
-  return false;
+public boolean palindrome(String word){
+  String temp = new String(onlyLetters(noSpaces(noCapitals(word))));
+  if(temp.equals(reverse(temp))){
+    return true;
+  } else {
+    return false;
+  }
 }
-public String reverse(String str)
-{
-    String sNew = new String();
-    //your code here
-    return sNew;
+
+
+public String reverse(String str){
+  String temp = new String();
+  for(int i = str.length(); i > 0; i--){
+    temp += str.substring(i-1,i);
+  }
+  return temp;
 }
+
+public String noCapitals(String sWord){
+  return sWord.toLowerCase();
+}
+
+public String noSpaces(String sWord){
+  String result = new String();
+  for(int i = 0; i < sWord.length(); i++){
+     if(!sWord.substring(i,i+1).equals(" ")){
+       result=result + sWord.substring(i,i+1);
+     }
+  }  
+  return result;
+}
+
+public int numLetters(String sString){
+  int count = 0;
+  for(int i = 0; i < sString.length(); i++){
+    if(Character.isLetter(sString.charAt(i)) == true){
+      count++;
+    } 
+  }
+  return count;
+}
+
+public String onlyLetters(String sString){
+  String temp = new String();
+  for(int i = 0; i < sString.length(); i++){
+    if(Character.isLetter(sString.charAt(i)) == true){
+      temp += sString.substring(i,i+1);
+    } 
+  }
+  return temp;
 }
