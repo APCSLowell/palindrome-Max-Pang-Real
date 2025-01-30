@@ -35,6 +35,7 @@ public void tester()
     }
   }
 }
+}  
 public boolean palindrome(String word){
   String temp = new String(onlyLetters(noSpaces(noCapitals(word))));
   if(temp.equals(reverse(temp))){
